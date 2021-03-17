@@ -44,7 +44,7 @@ int Graph::findOldIndex(int index)
 {
 	if (index != BadIndex && index < items.size())
 	{
-		auto it = std::find_if(items.begin(), items.end(), [&index](auto item) { return item.indexOld == index; });
+		auto it = std::find_if(items.begin(), items.end(), [&index](auto& item) { return item.indexOld == index; });
 		if (it != items.end()) { return static_cast<int>(std::distance(items.begin(), it)); }
 	}
 
@@ -61,7 +61,7 @@ void Graph::rebuildConnections()
 
 			if (prev != BadIndex)
 			{
-				auto it = std::find_if(items.begin(), items.end(), [&prev](auto item) { return item.index == prev; });
+				auto it = std::find_if(items.begin(), items.end(), [&prev](auto& item) { return item.index == prev; });
 				if (it != items.end()) { items[i].prevNode[j] = static_cast<int>(std::distance(items.begin(), it)); }
 				else { items[i].prevNode[j] = BadIndex; }
 			}

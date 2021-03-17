@@ -4,13 +4,14 @@
 
 // useful usings
 template<typename T>
-using Stack = std::stack<T>;							
+using Stack = std::stack<T>;
 using VectorItems = Vector<Item>;
 using StackInt = Stack<int>;
 
-class Graph
+struct Graph
 {
-public:
+	Graph() = default;
+	Graph(const VectorItems& items) : items(items) {}
 	VectorItems items;									// vector of items
 
 	void buildNextNodes();								// build connections to next nodes from connections to previous nodes
