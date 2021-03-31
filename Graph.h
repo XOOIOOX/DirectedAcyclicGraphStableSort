@@ -25,5 +25,5 @@ struct Graph
 	void sort();										// sorting nodes according processing flow
 
 private:
-	StackInt stack;										// стек для поиска петель
+	StackInt stack;										// stack for loop search
 };
